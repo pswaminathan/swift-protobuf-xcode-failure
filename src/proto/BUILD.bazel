@@ -1,5 +1,5 @@
 load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@rules_proto_grpc//swift:defs.bzl", "swift_proto_library")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_proto_library")
 
 package(
     default_visibility = ["//visibility:public"],
@@ -15,11 +15,14 @@ proto_library(
 
 swift_proto_library(
     name = "example_swift_proto",
-    protos = [
+    deps = [
         ":example_proto",
     ],
-    options = {
-        "@rules_proto_grpc//swift:swift_plugin": ["Visibility=Public"],
-    },
-    module_name = "ExampleProto",
+    # protos = [
+    #     ":example_proto",
+    # ],
+    # options = {
+    #     "@rules_proto_grpc//swift:swift_plugin": ["Visibility=Public"],
+    # },
+    # module_name = "ExampleProto",
 )
