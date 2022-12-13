@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package example;
+
+import "google/protobuf/timestamp.proto";
+
+message Packet {
+	uint32 id = 1;
+	google.protobuf.Timestamp timestamp = 2;
+}
+
+enum State {
+	Idle = 0;
+	Ready = 1;
+	Started = 2;
+	Paused = 3;
+	Resumed = 4;
+	Ended = 5;
+}
+
+message StateNotification {
+	State state = 1;
+}
