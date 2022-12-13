@@ -1,0 +1,25 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@rules_proto_grpc//swift:defs.bzl", "swift_proto_library")
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "example_proto",
+    srcs = ["example.proto"],
+    deps = [
+        "@com_google_protobuf//:timestamp_proto",
+    ],
+)
+
+swift_proto_library(
+    name = "example_swift_proto",
+    protos = [
+        ":example_proto",
+    ],
+    options = {
+        "@rules_proto_grpc//swift:swift_plugin": ["Visibility=Public"],
+    },
+    module_name = "ExampleProto",
+)
