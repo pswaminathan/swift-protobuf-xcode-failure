@@ -2,15 +2,18 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
+    name = "build_bazel_rules_swift",
+    sha256 = "c244e9f804a48c27fe490150c762d8b0c868b23ef93dc4e3f93d8117ca216d92",
+    url = "https://github.com/bazelbuild/rules_swift/releases/download/1.4.0/rules_swift.1.4.0.tar.gz",
+)
+
+
+http_archive(
     name = "com_github_buildbuddy_io_rules_xcodeproj",
     sha256 = "b4e71c7740bb8cfa4bc0b91c0f18ac512debcc111ebe471280e24f579a3b0782",
     url = "https://github.com/buildbuddy-io/rules_xcodeproj/releases/download/0.10.2/release.tar.gz",
 )
 
-# rules_xcodeproj@0.9.0 installs the following repository rules:
-#  1. rules_swift@1.2.0
-#  2. rules_apple@1.1.2
-#  3. apple_support@1.3.0
 load(
     "@com_github_buildbuddy_io_rules_xcodeproj//xcodeproj:repositories.bzl",
     "xcodeproj_rules_dependencies",
