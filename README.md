@@ -1,4 +1,7 @@
 # swift-protobuf-xcode-failure
+
+**UPDATE**: This is resolved, so the repository is archived.
+
 Demo of failure using Swift-protobuf in new Xcode
 
 On `main`:
